@@ -1,50 +1,102 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# fwk_console_v2 Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. 可运行性优先 (Runnability First)
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+本项目是一个前端演示(demo)项目，**必须** 优先保证项目的可运行性。任何功能实现、代码重构或优化都不得破坏项目的基本运行能力。
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+**核心规则**：
+- 每次提交前 **必须** 验证项目可正常启动和运行
+- 功能完整性优先于代码完美性
+- 出现冲突时，可运行的简单实现优于不可运行的复杂设计
+- **禁止** 提交导致项目无法启动的代码
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+**理由**：作为演示项目，能够随时展示和运行是第一要务，这确保项目始终处于可演示状态。
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### II. 最小依赖原则 (Minimal Dependencies)
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+**禁止** 引入非必要的外部依赖。每个新依赖的引入都 **必须** 有充分的理由和明确的价值。
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+**核心规则**：
+- 如无必要，**禁止** 添加任何新的 npm 包或第三方库
+- 优先使用项目已有依赖提供的功能
+- 优先使用原生 JavaScript/TypeScript 和 React 内置能力
+- 新增依赖 **必须** 在文档中说明：依赖名称、用途、为何无法用现有方案替代
+- 工具类功能优先自行实现，除非实现复杂度极高
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+**理由**：减少依赖可降低项目体积、提升构建速度、减少安全风险和维护成本，保持项目轻量化。
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### III. 测试策略 (Testing Strategy)
+
+除非明确要求，**禁止** 生成测试代码。测试不是默认交付物。
+
+**核心规则**：
+- 默认情况下，**不** 编写单元测试、集成测试或E2E测试
+- 仅在以下情况编写测试：
+  - 用户明确要求包含测试
+  - 功能规格说明(spec)中明确标注需要测试
+  - 复杂业务逻辑确实需要测试保护（需文档化说明理由）
+- 如需测试，优先编写最小必要的测试集
+- 测试代码同样遵循最小依赖原则
+
+**理由**：作为演示项目，快速迭代和功能展示优先，避免测试代码增加开发负担和项目复杂度。
+
+### IV. 技术栈约束 (Technology Stack)
+
+项目 **必须** 严格使用以下技术栈，**禁止** 引入替代技术。
+
+**强制技术栈**：
+- **前端框架**：React（必须使用，禁止Vue/Angular等）
+- **UI组件库**：Ant Design（必须使用，禁止Material-UI/Chakra等）
+- **构建工具**：Vite（必须使用，禁止Webpack/Rollup等）
+- **语言**：TypeScript优先，必要时可使用JavaScript
+
+**核心规则**：
+- 所有React组件 **必须** 使用函数组件和Hooks
+- UI实现 **必须** 优先使用Ant Design组件，仅在缺失时自定义
+- 样式方案遵循Ant Design推荐方式（CSS Modules或CSS-in-JS）
+- Vite配置 **必须** 保持简洁，避免复杂插件链
+
+**理由**：统一技术栈确保代码风格一致、降低学习成本、简化维护，React + Ant Design + Vite是现代前端demo项目的最佳实践组合。
+
+## Technology Stack
+
+**强制要求**：
+
+- **Runtime**: Node.js (LTS版本)
+- **Package Manager**: npm
+- **Framework**: React 18+
+- **UI Library**: Ant Design 5.x
+- **Build Tool**: Vite 5.x
+- **Language**: TypeScript 5.x
+- **Styling**: Ant Design 内置样式方案
+
+**禁止使用**：
+
+- 其他前端框架（Vue, Angular, Svelte等）
+- 其他UI库（Material-UI, Element, Chakra UI等）
+- 其他构建工具（Webpack, Parcel, Rollup等）
+- Class组件（必须使用函数组件）
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+**宪法权威**：
+- 本宪法优先级高于所有其他开发实践和文档
+- 任何违反宪法的代码 **必须** 被拒绝
+- 宪法修订 **必须** 记录版本变更和理由
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**合规性检查**：
+- 所有功能规划(plan.md) **必须** 包含 Constitution Check 章节
+- 代码审查 **必须** 验证四项核心原则的遵守情况
+- 引入新依赖 **必须** 在PR中说明符合第II条原则的理由
+
+**修订流程**：
+- 修订提案 **必须** 说明变更原因、影响范围和迁移计划
+- 版本号遵循语义化版本规则：
+  - **MAJOR**: 移除原则或向后不兼容的重大变更
+  - **MINOR**: 新增原则或章节
+  - **PATCH**: 措辞优化、澄清说明、错误修正
+- 修订后 **必须** 更新所有相关模板和文档
+
+**Version**: 1.0.0 | **Ratified**: 2025-12-09 | **Last Amended**: 2025-12-09

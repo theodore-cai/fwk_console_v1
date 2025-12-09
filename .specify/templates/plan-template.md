@@ -17,11 +17,11 @@
   the iteration process.
 -->
 
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]  
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]  
+**Language/Version**: [e.g., TypeScript 5.x, Python 3.11, Swift 5.9 or NEEDS CLARIFICATION]  
+**Primary Dependencies**: [e.g., React 18+, Ant Design 5.x, Vite 5.x or NEEDS CLARIFICATION]  
 **Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]  
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]  
-**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
+**Testing**: [默认: 不需要（宪法规定） | 如需测试: pytest, XCTest, cargo test or NEEDS CLARIFICATION]  
+**Target Platform**: [e.g., 现代浏览器, Linux server, iOS 15+ or NEEDS CLARIFICATION]
 **Project Type**: [single/web/mobile - determines source structure]  
 **Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]  
 **Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]  
@@ -56,39 +56,47 @@ specs/[###-feature]/
 -->
 
 ```text
-# [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
+# [REMOVE IF UNUSED] Option 1: Frontend React Application (DEFAULT for fwk_console_v2)
 src/
-├── models/
-├── services/
-├── cli/
-└── lib/
+├── components/          # React components
+│   ├── common/         # Shared components
+│   └── features/       # Feature-specific components
+├── pages/              # Page-level components
+├── services/           # API calls and business logic
+├── utils/              # Utility functions
+├── hooks/              # Custom React hooks
+├── types/              # TypeScript type definitions
+├── assets/             # Images, fonts, etc.
+└── App.tsx             # Main app component
 
-tests/
-├── contract/
-├── integration/
-└── unit/
+public/                 # Static assets
+tests/ (optional)       # Only if tests explicitly requested
+├── unit/
+└── integration/
 
-# [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
+# [REMOVE IF UNUSED] Option 2: Full-stack Web (frontend + backend)
 backend/
 ├── src/
 │   ├── models/
 │   ├── services/
 │   └── api/
-└── tests/
+└── tests/ (optional)
 
 frontend/
 ├── src/
 │   ├── components/
 │   ├── pages/
 │   └── services/
-└── tests/
+└── tests/ (optional)
 
-# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
-api/
-└── [same as backend above]
+# [REMOVE IF UNUSED] Option 3: Library/CLI project
+src/
+├── models/
+├── services/
+├── cli/
+└── lib/
 
-ios/ or android/
-└── [platform-specific structure: feature modules, UI flows, platform tests]
+tests/ (optional)
 ```
 
 **Structure Decision**: [Document the selected structure and reference the real

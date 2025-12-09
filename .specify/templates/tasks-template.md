@@ -8,7 +8,10 @@ description: "Task list template for feature implementation"
 **Input**: Design documents from `/specs/[###-feature-name]/`
 **Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
 
-**Tests**: The examples below include test tasks. Tests are OPTIONAL - only include them if explicitly requested in the feature specification.
+**Tests**: Per constitution, tests are **NOT required by default**. Only include test tasks if:
+  - Explicitly requested in the feature specification
+  - User specifically asked for tests in their requirements
+  - Complex business logic necessitates test coverage (must be documented)
 
 **Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
 
@@ -20,10 +23,10 @@ description: "Task list template for feature implementation"
 
 ## Path Conventions
 
-- **Single project**: `src/`, `tests/` at repository root
-- **Web app**: `backend/src/`, `frontend/src/`
-- **Mobile**: `api/src/`, `ios/src/` or `android/src/`
-- Paths shown below assume single project - adjust based on plan.md structure
+- **Frontend React app (fwk_console_v2 default)**: `src/components/`, `src/pages/`, `src/services/`, `tests/` (optional)
+- **Full-stack web**: `backend/src/`, `frontend/src/`
+- **Library/CLI**: `src/`, `tests/` at repository root
+- Paths shown below may need adjustment based on plan.md structure
 
 <!-- 
   ============================================================================

@@ -1,0 +1,50 @@
+/* CSS Variables */
+:root {
+  --primary-color: #6C5CE7;
+  --bg-light: #F5F5F5;
+  --bg-white: #FFF;
+  --border-color: #E8E8E8;
+}
+
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-light);
+  font-family: system-ui, -apple-system, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Layout - Remove default Ant Design shadows */
+.ant-layout-header,
+.ant-layout-sider {
+  box-shadow: none !important;
+}
+
+/* Menu Active State */
+.ant-menu-item-selected {
+  background: var(--primary-color) !important;
+  color: #fff !important;
+  border-left: 3px solid var(--primary-color) !important;
+}
+
+.ant-menu-item-selected::after {
+  border-right: none !important;
+}
+
+/* Menu Hover State */
+.ant-menu-item:hover:not(.ant-menu-item-selected) {
+  background: rgba(108, 92, 231, 0.1) !important;
+}
+
+/* Menu Item Padding Adjustment for Border */
+.ant-menu-inline .ant-menu-item {
+  padding-left: 21px !important; /* 24px - 3px border */
+  height: 60px !important; /* 125% scaling */
+  line-height: 60px !important;
+}
+
+.ant-menu-inline .ant-menu-item-selected {
+  padding-left: 21px !important; /* Account for 3px left border */
+  height: 60px !important;
+  line-height: 60px !important;
+}

@@ -1,8 +1,14 @@
+import { Typography } from 'antd';
+
+const { Title, Paragraph } = Typography;
+
 function LTSPage() {
   return (
-    <div>
-      <h2>LTS 页面</h2>
-      <p>LTS 管理模块</p>
+    <div style={{ padding: '8px' }}>
+      <Title level={2}>LTS 页面</Title>
+      <Paragraph>
+        LTS 管理模块
+      </Paragraph>
     </div>
   );
 }

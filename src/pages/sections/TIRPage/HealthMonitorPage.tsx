@@ -2,15 +2,13 @@ import { Typography } from 'antd';
 
 const { Title, Paragraph } = Typography;
 
-function AuthPage() {
+export default function HealthMonitorPage() {
   return (
     <div style={{ padding: '8px' }}>
-      <Title level={2}>Auth 页面</Title>
+      <Title level={2}>Health Monitor</Title>
       <Paragraph>
-        认证管理模块
+        健康监控功能提供系统运行状态的实时监测和告警。
       </Paragraph>
     </div>
   );
 }
-
-export default AuthPage;

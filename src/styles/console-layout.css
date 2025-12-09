@@ -41,10 +41,36 @@ body {
   padding-left: 21px !important; /* 24px - 3px border */
   height: 60px !important; /* 125% scaling */
   line-height: 60px !important;
+  font-weight: 600 !important; /* Bold for main menu items */
 }
 
 .ant-menu-inline .ant-menu-item-selected {
   padding-left: 21px !important; /* Account for 3px left border */
   height: 60px !important;
   line-height: 60px !important;
+  font-weight: 600 !important; /* Bold for main menu items */
+}
+
+/* TIR Submenu Items */
+.ant-menu-inline .tir-submenu-item {
+  padding-left: 48px !important; /* Align with or slightly after TIR text */
+  font-size: 15px !important;
+  font-weight: 400 !important; /* Normal weight for submenu items */
+}
+
+.ant-menu-inline .tir-submenu-item.ant-menu-item-selected {
+  padding-left: 48px !important;
+  font-weight: 400 !important; /* Normal weight for submenu items */
+}
+
+/* Generic Submenu Items (for future use) */
+.ant-menu-inline .submenu-item {
+  padding-left: 48px !important;
+  font-size: 15px !important;
+  font-weight: 400 !important; /* Normal weight for submenu items */
+}
+
+.ant-menu-inline .submenu-item.ant-menu-item-selected {
+  padding-left: 48px !important;
+  font-weight: 400 !important; /* Normal weight for submenu items */
 }

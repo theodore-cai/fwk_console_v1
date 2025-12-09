@@ -2,15 +2,13 @@ import { Typography } from 'antd';
 
 const { Title, Paragraph } = Typography;
 
-function AuthPage() {
+export default function IndexManagementPage() {
   return (
     <div style={{ padding: '8px' }}>
-      <Title level={2}>Auth 页面</Title>
+      <Title level={2}>Index Management</Title>
       <Paragraph>
-        认证管理模块
+        索引管理功能提供对系统索引的创建、维护和监控能力。
       </Paragraph>
     </div>
   );
 }
-
-export default AuthPage;
